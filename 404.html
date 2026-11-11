@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Redirigiendo...</title>
+    <script>
+        const rutas = {
+            "Lenguajedemarcas": "Lenguaje-de-marcas",
+            "lenguajedemarcas": "Lenguaje-de-marcas",
+            "Lenguaje-De-Marcas": "Lenguaje-de-marcas",
+            "Lenguaje": "Lenguaje-de-marcas",
+            "Lenguaje-de-Marcas": "Lenguaje-de-marcas",
+            "LENGUAJE-DE-MARCAS": "Lenguaje-de-marcas", 
+            "portfolio": ""
+        };
+
+        const ruta = decodeURIComponent(location.pathname)
+            .toLowerCase()
+            .replace(/^\/+|\/+$/g, "")
+            .replace(/[-_\s]/g, "");
+
+        const destino = rutas[ruta] !== undefined
+            ? rutas[ruta]
+            : null;
+
+        if (destino !== null) {
+            location.replace(
+                "https://guillermogarcia137.github.io/" +
+                (destino ? destino + "/" : "")
+            );
+        }
+    </script>
+</head>
+<body>
+    <h1>Página no encontrada</h1>
+    <p>Comprueba la dirección que has escrito.</p>
+</body>
+</html>
